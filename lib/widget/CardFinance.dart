@@ -1,11 +1,11 @@
-
 import 'package:flutter/material.dart';
 
 class CardFinance extends StatelessWidget {
   const CardFinance({
     super.key,
+    this.reveOrExpend,
   });
-
+  final reveOrExpend;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,7 +29,7 @@ class CardFinance extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.only(bottom: 7),
-            child: Text('Income',
+            child: Text(reveOrExpend,
                 style: Theme.of(context)
                     .textTheme
                     .bodySmall

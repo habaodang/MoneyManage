@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/item/ItemSpendingContent.dart';
+import 'package:myapp/item/ItemYourFinance.dart';
 import 'package:myapp/widget/CardBalance.dart';
 import 'package:myapp/widget/CardFinance.dart';
 import 'package:myapp/widget/CardSpendingContent.dart';
-
 import 'widget/InputContent.dart';
 
 void main() => runApp(const MyApp());
@@ -74,7 +74,10 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           const Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [CardFinance(), CardFinance()],
+            children: [
+              CardFinance(reveOrExpend: 'Income'),
+              CardFinance(reveOrExpend: 'expenditure')
+            ],
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 25),

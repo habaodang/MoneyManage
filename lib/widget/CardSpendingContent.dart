@@ -18,6 +18,7 @@ class CardSpendingContent extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
               width: 50,
