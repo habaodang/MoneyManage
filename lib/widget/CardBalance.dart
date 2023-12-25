@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class CardBalance extends StatelessWidget {
   const CardBalance({
     super.key,
+    this.now_money,
   });
-
+  final now_money;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,7 +28,7 @@ class CardBalance extends StatelessWidget {
                     const TextStyle(
                         fontSize: 25, fontWeight: FontWeight.bold))),
             const Text(''),
-            Text('Rp. 3.000.000',
+            Text('$now_money VND',
                 style: Theme.of(context).textTheme.bodyLarge?.merge(
                     const TextStyle(
                         fontSize: 40, fontWeight: FontWeight.bold))),

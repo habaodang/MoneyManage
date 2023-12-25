@@ -46,6 +46,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final List<ItemContent> Content = [];
 
+  var _now_money = 300000000;
+  var _income_money = 0;
+  var _expediture_money = 0;
+
   void getContent(name, money) {
     DateTime now = DateTime.now();
     int day = now.day;
@@ -55,8 +59,14 @@ class _MyHomePageState extends State<MyHomePage> {
     String date = '$day/$month/$year';
     final newContent = ItemContent(name: name, date: date, money: money);
     setState(() {
+      var numMoney = int.parse(money);
       Content.add(newContent);
-      print(name);
+      _now_money += numMoney;
+      if (numMoney > 0) {
+        _income_money += numMoney;
+      } else {
+        _expediture_money += numMoney;
+      }
     });
   }
 
@@ -66,17 +76,22 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CardBalance(),
+          CardBalance(
+            now_money: _now_money,
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 25),
             child: Text('Finance Balance',
                 style: Theme.of(context).textTheme.bodySmall),
           ),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              CardFinance(reveOrExpend: 'Income'),
-              CardFinance(reveOrExpend: 'expenditure')
+              CardFinance(reveOrExpend: 'Income', money: _income_money),
+              CardFinance(
+                reveOrExpend: 'expenditure',
+                money: _expediture_money,
+              )
             ],
           ),
           Padding(
