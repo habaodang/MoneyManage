@@ -26,8 +26,8 @@ class TextFieldAddTransaction extends StatelessWidget {
   final TextEditingController _inputControllerMoney = TextEditingController();
 
   void clickOnButton() {
-    var name = _inputControllerName.text;
-    var money = _inputControllerMoney.text;
+    String name = _inputControllerName.text;
+    String money = _inputControllerMoney.text;
     getInput(name, money);
   }
 

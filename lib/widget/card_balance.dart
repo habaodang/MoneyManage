@@ -3,16 +3,15 @@ import 'package:flutter/material.dart';
 class CardBalance extends StatelessWidget {
   const CardBalance({
     super.key,
-    this.now_money,
+    required this.nowMoney,
   });
-  final now_money;
+  final int nowMoney;
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 230,
       color: const Color(0xFFd9342e),
-
       // Box great
       child: Padding(
         padding: const EdgeInsets.only(left: 25, top: 60, bottom: 30),
@@ -24,14 +23,18 @@ class CardBalance extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             Text('Welcome back!',
-                style: Theme.of(context).textTheme.bodyLarge?.merge(
-                    const TextStyle(
-                        fontSize: 25, fontWeight: FontWeight.bold))),
-            const Text(''),
-            Text('$now_money VND',
-                style: Theme.of(context).textTheme.bodyLarge?.merge(
-                    const TextStyle(
-                        fontSize: 40, fontWeight: FontWeight.bold))),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyLarge
+                    ?.copyWith(fontSize: 25, fontWeight: FontWeight.bold)),
+            const SizedBox(
+              height: 15,
+            ),
+            Text('$nowMoney VND',
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyLarge
+                    ?.copyWith(fontSize: 40, fontWeight: FontWeight.bold)),
             Text(
               'Your Balance',
               style: Theme.of(context).textTheme.bodyLarge,

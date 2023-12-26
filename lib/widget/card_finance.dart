@@ -3,11 +3,14 @@ import 'package:flutter/material.dart';
 class CardFinance extends StatelessWidget {
   const CardFinance({
     super.key,
-    this.reveOrExpend,
-    this.money,
+    required this.reveOrExpend,
+    required this.money,
+    required this.colorFinance,
   });
-  final reveOrExpend;
-  final money;
+  final String reveOrExpend;
+  final int money;
+  final Color colorFinance;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -35,13 +38,13 @@ class CardFinance extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .bodySmall
-                    ?.merge(const TextStyle(fontSize: 15))),
+                    ?.copyWith(fontSize: 15)),
           ),
           Text('$money VND',
-              style: Theme.of(context).textTheme.bodySmall?.merge(
-                  const TextStyle(
-                      color: Color.fromARGB(255, 77, 179, 69),
-                      fontWeight: FontWeight.bold))),
+              style: Theme.of(context)
+                  .textTheme
+                  .bodySmall
+                  ?.copyWith(color: colorFinance, fontWeight: FontWeight.bold)),
         ],
       ),
     );

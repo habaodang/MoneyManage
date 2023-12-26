@@ -6,11 +6,15 @@ class CardSpendingContent extends StatelessWidget {
     required this.name,
     required this.date,
     required this.money,
+    required this.deleteContent,
+    required this.id,
   });
 
-  final name;
-  final date;
-  final money;
+  final String name;
+  final String date;
+  final String money;
+  final String id;
+  final Function deleteContent;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -18,7 +22,6 @@ class CardSpendingContent extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
               width: 50,
@@ -43,7 +46,17 @@ class CardSpendingContent extends StatelessWidget {
                 ],
               ),
             ),
-            Text(money, style: Theme.of(context).textTheme.bodySmall)
+            const Spacer(),
+            Text(money, style: Theme.of(context).textTheme.bodySmall),
+            InkWell(
+              onTap: () {
+                deleteContent(id,money);
+              },
+              child: const Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: Icon(Icons.delete),
+              ),
+            ),
           ],
         ),
       ),

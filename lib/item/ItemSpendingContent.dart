@@ -1,6 +1,11 @@
 class ItemContent {
-  var name;
-  var date;
-  var money;
-  ItemContent({this.name, this.date, this.money});
+  String name;
+  String date;
+  String money;
+  String id;
+  ItemContent(
+      {required this.name,
+      required this.date,
+      required this.money,
+      required this.id});
 }
